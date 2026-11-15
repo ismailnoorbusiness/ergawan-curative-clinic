@@ -1,33 +1,39 @@
 # Ergawan Curative Clinic
 
-Website and clinic portal source code for [Ergawan Curative Clinic](https://ergawan-care-link.base44.app).
+Website and clinic portal source code for Ergawan Curative Clinic.
 
 ## Project
 
-- Frontend: React 19, TanStack Start, Vite, Tailwind CSS
-- Backend and hosting: Base44
+- Frontend: React 19, TanStack Start, Vite, and Tailwind CSS
 - Languages: English, Dari (Farsi), and Pashto
-- Includes public clinic pages, appointment booking, service information, contact forms, patient portal, and admin tools.
+- Includes public clinic pages, appointment booking, service information, contact forms, patient portal, and administration tools.
 
 ## Run locally
 
-This project uses Base44 for its backend services. To run the full application locally, install the dependencies and connect it to the original Base44 app using an authorized Base44 account:
+Install dependencies:
 
 ```bash
 npm install
-npx base44 login
-npx base44 link
-npx base44 dev
 ```
 
-Build:
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Create a production build:
 
 ```bash
 npm run build
 ```
 
-## Important
+## Backend and deployment
 
-This repository contains application source code. It does not contain patient records, uploaded private files, or Base44 environment secrets. Backend functionality depends on the original Base44 app and its configured data models, functions, and secrets.
+The existing application still uses its currently configured hosted backend services. These integrations have been left in place to avoid breaking appointment booking, patient portal, administration tools, or other connected features.
 
-Never commit `.env` files, access tokens, patient data, or other credentials.
+Removing platform branding does not by itself migrate the backend or make the application fully independent. A separate backend replacement and configuration would be required for that.
+
+## Security
+
+This repository should not contain patient records, private uploads, environment files, access tokens, or other credentials. Keep all sensitive values in secure environment configuration.
