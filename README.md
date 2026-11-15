@@ -10,15 +10,8 @@ Website and clinic portal source code for Ergawan Curative Clinic.
 
 ## Run locally
 
-Install dependencies:
-
 ```bash
 npm install
-```
-
-Start the development server:
-
-```bash
 npm run dev
 ```
 
@@ -28,12 +21,10 @@ Create a production build:
 npm run build
 ```
 
-## Backend and deployment
+## Backend
 
-The existing application still uses its currently configured hosted backend services. These integrations have been left in place to avoid breaking appointment booking, patient portal, administration tools, or other connected features.
-
-Removing platform branding does not by itself migrate the backend or make the application fully independent. A separate backend replacement and configuration would be required for that.
+The current application still has integrations with its existing hosted data, authentication, and AI services. Those integrations are not replaced by this branding cleanup. Do not deploy this branch as an independent clinic backend until the replacement services and data migration have been implemented and tested.
 
 ## Security
 
-This repository should not contain patient records, private uploads, environment files, access tokens, or other credentials. Keep all sensitive values in secure environment configuration.
+Do not commit patient records, private uploads, environment files, access tokens, or other credentials. Keep sensitive values in secure environment configuration.
