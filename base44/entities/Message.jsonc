@@ -1,0 +1,72 @@
+{
+  "name": "Message",
+  "type": "object",
+  "properties": {
+    "thread_user_id": {
+      "type": "string"
+    },
+    "thread_email": {
+      "type": "string"
+    },
+    "sender_role": {
+      "type": "string",
+      "enum": [
+        "patient",
+        "staff"
+      ],
+      "enumColors": [
+        "blue",
+        "green"
+      ]
+    },
+    "sender_name": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "appointment_id": {
+      "type": "string"
+    },
+    "read_by_patient": {
+      "type": "boolean"
+    },
+    "read_by_staff": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "thread_user_id",
+    "sender_role",
+    "body"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "$or": [
+        {
+          "data.thread_user_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

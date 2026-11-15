@@ -1,0 +1,87 @@
+{
+  "name": "ClinicSettings",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "name_fa": {
+      "type": "string"
+    },
+    "name_ps": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "notification_email": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "address_fa": {
+      "type": "string"
+    },
+    "address_ps": {
+      "type": "string"
+    },
+    "hours": {
+      "type": "string"
+    },
+    "hours_fa": {
+      "type": "string"
+    },
+    "hours_ps": {
+      "type": "string"
+    },
+    "emergency_note": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "notify_new_requests": {
+      "type": "boolean"
+    },
+    "notify_new_messages": {
+      "type": "boolean"
+    },
+    "is_placeholder": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

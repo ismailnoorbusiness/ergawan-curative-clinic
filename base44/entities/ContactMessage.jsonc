@@ -1,0 +1,107 @@
+{
+  "name": "ContactMessage",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "appointment",
+        "general",
+        "feedback",
+        "urgent",
+        "other"
+      ],
+      "enumColors": [
+        "blue",
+        "gray",
+        "green",
+        "red",
+        "purple"
+      ]
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "high"
+      ],
+      "enumColors": [
+        "gray",
+        "red"
+      ]
+    },
+    "ai_summary": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "en",
+        "fa",
+        "ps"
+      ],
+      "enumColors": [
+        "blue",
+        "purple",
+        "pink"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "read",
+        "replied",
+        "archived"
+      ],
+      "enumColors": [
+        "yellow",
+        "blue",
+        "green",
+        "gray"
+      ]
+    },
+    "reply": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "body",
+    "status"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@300..700&family=Vazirmatn:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 216 65% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 216 65% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 65% 11%;
+    --primary: 216 65% 11%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 216 65% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 19% 35%;
+    --accent: 172 66% 50%;
+    --accent-foreground: 216 65% 11%;
+    --destructive: 347 77% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 172 66% 40%;
+    --radius: 0.875rem;
+    --chart-1: 172 66% 50%;
+    --chart-2: 216 65% 11%;
+    --chart-3: 199 78% 45%;
+    --chart-4: 172 40% 70%;
+    --chart-5: 216 20% 60%;
+    --font-heading: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 216 65% 11%;
+    --sidebar-primary: 216 65% 11%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 94%;
+    --sidebar-accent-foreground: 216 65% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 172 66% 40%;
+  }
+
+  .dark {
+    --background: 216 65% 8%;
+    --foreground: 0 0% 98%;
+    --card: 216 55% 11%;
+    --card-foreground: 0 0% 98%;
+    --popover: 216 55% 11%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 172 66% 50%;
+    --primary-foreground: 216 65% 8%;
+    --secondary: 216 40% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 216 40% 16%;
+    --muted-foreground: 215 25% 70%;
+    --accent: 172 66% 45%;
+    --accent-foreground: 216 65% 8%;
+    --destructive: 347 77% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 216 35% 20%;
+    --input: 216 35% 20%;
+    --ring: 172 66% 50%;
+  }
+
+  /* Dari and Pashto: a Naskh-style face across every role, mirrored layout. */
+  html[dir="rtl"] {
+    --font-heading: 'Vazirmatn', 'Noto Naskh Arabic', Georgia, serif;
+    --font-body: 'Vazirmatn', 'Noto Naskh Arabic', system-ui, sans-serif;
+    --font-display: 'Vazirmatn', 'Noto Naskh Arabic', Georgia, serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.25);
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground;
+  }
+
+  .display-title {
+    @apply font-heading font-normal tracking-[-0.015em] text-balance;
+  }
+
+  .glass-panel {
+    @apply border border-border/70 bg-background/80 backdrop-blur-xl;
+  }
+}
+
+/* ---------- Hero (adapted from Hero Section 5) ---------- */
+.hero-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  height: clamp(190px, 32vw, 400px);
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .hero-gallery {
+    gap: 1rem;
+  }
+}
+.hero-photo {
+  min-width: 0;
+  min-height: 0;
+}
+.hero-photo--2 {
+  transform: translateY(clamp(0px, 5.5vw, 62px));
+}
+.hero-photo-frame {
+  position: relative;
+  width: 100%;
+  height: calc(100% + clamp(40px, 10vw, 130px));
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+  background: hsl(var(--primary));
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes hero-rise-photo {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-anim-rise {
+  animation: hero-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hero-anim-photo {
+  animation: hero-rise-photo 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes hero-letter-wave {
+  0%,
+  18%,
+  100% {
+    color: hsl(var(--primary));
+  }
+  9% {
+    color: hsl(var(--accent));
+  }
+}
+.hero-letter {
+  animation: hero-letter-wave 4.5s linear infinite;
+  animation-delay: calc(var(--hero-i, 0) * 0.09s);
+}
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.soft-float {
+  animation: soft-float 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim-rise,
+  .hero-anim-photo,
+  .hero-letter,
+  .soft-float {
+    animation: none;
+    opacity: 1;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Prose for knowledge articles */
+.article-body {
+  @apply text-[1.0625rem] leading-[1.75] text-muted-foreground;
+}
+.article-body h2 {
+  @apply mt-8 mb-3 font-heading text-2xl font-normal text-foreground;
+}
+.article-body p {
+  @apply mb-4;
+}
+.article-body ul {
+  @apply mb-4 list-disc space-y-2 ps-5;
+}
+.article-body strong {
+  @apply font-semibold text-foreground;
+}

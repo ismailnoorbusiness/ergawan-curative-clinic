@@ -1,0 +1,115 @@
+{
+  "name": "Appointment",
+  "type": "object",
+  "properties": {
+    "tracking_code": {
+      "type": "string"
+    },
+    "patient_name": {
+      "type": "string"
+    },
+    "patient_email": {
+      "type": "string"
+    },
+    "patient_phone": {
+      "type": "string"
+    },
+    "patient_user_id": {
+      "type": "string"
+    },
+    "service_slug": {
+      "type": "string"
+    },
+    "service_name": {
+      "type": "string"
+    },
+    "preferred_date": {
+      "type": "string"
+    },
+    "preferred_time": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "en",
+        "fa",
+        "ps"
+      ],
+      "enumColors": [
+        "blue",
+        "purple",
+        "pink"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "requested",
+        "confirmed",
+        "completed",
+        "cancelled",
+        "declined"
+      ],
+      "enumColors": [
+        "yellow",
+        "green",
+        "gray",
+        "red",
+        "red"
+      ]
+    },
+    "staff_note": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "website",
+        "portal",
+        "staff"
+      ],
+      "enumColors": [
+        "blue",
+        "green",
+        "gray"
+      ]
+    }
+  },
+  "required": [
+    "tracking_code",
+    "patient_name",
+    "patient_email",
+    "service_name",
+    "preferred_date",
+    "status"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

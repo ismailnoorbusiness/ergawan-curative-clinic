@@ -1,0 +1,90 @@
+{
+  "name": "Service",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "name_fa": {
+      "type": "string"
+    },
+    "name_ps": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "summary_fa": {
+      "type": "string"
+    },
+    "summary_ps": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "description_fa": {
+      "type": "string"
+    },
+    "description_ps": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string",
+      "enum": [
+        "stethoscope",
+        "baby",
+        "shield",
+        "syringe",
+        "heart",
+        "apple"
+      ],
+      "enumColors": [
+        "blue",
+        "pink",
+        "green",
+        "purple",
+        "red",
+        "yellow"
+      ]
+    },
+    "duration_minutes": {
+      "type": "number"
+    },
+    "order": {
+      "type": "number"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "is_sample": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "slug",
+    "name",
+    "summary"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

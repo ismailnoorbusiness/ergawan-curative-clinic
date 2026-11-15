@@ -1,0 +1,96 @@
+{
+  "name": "Article",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Preventive care",
+        "Maternal and child health",
+        "Vaccination",
+        "Healthy living",
+        "Using the clinic"
+      ],
+      "enumColors": [
+        "green",
+        "pink",
+        "purple",
+        "yellow",
+        "blue"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "title_fa": {
+      "type": "string"
+    },
+    "title_ps": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "summary_fa": {
+      "type": "string"
+    },
+    "summary_ps": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "body_fa": {
+      "type": "string"
+    },
+    "body_ps": {
+      "type": "string"
+    },
+    "source_name": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "published_date": {
+      "type": "string"
+    },
+    "reviewed_by": {
+      "type": "string"
+    },
+    "reviewed_date": {
+      "type": "string"
+    },
+    "is_sample": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "slug",
+    "title",
+    "summary",
+    "body",
+    "published_date"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

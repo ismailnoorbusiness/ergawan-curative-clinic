@@ -1,0 +1,50 @@
+{
+  "name": "Feedback",
+  "type": "object",
+  "properties": {
+    "patient_name": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "number"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "service_name": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "rating",
+    "comment"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "data.published": true
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
